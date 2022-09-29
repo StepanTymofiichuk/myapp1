@@ -16,7 +16,6 @@ function ItEnglish(props) {
   }, [])
   const check = (event) => {
     event.preventDefault();
-    if(count >= 2) {
       if (input == ITVocabulary[nextWord].englishWord) {
         setIsCorrect("true");
         setScore(score + 1);
@@ -24,10 +23,6 @@ function ItEnglish(props) {
         setIsCorrect("false");
         setScore(score - 1);
       }
-    } else {
-      setNextBtnDisabled(true);
-    }
-
     setInput('')
   }
   const next = (event) => {
