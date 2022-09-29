@@ -1,0 +1,36 @@
+
+
+.card {
+  border: 1px solid;
+  padding: 5px;
+}
+.card-header {
+  text-align: center;
+  padding: 5px;
+}
+.card-body {
+  padding: 5px;
+}
+.card-footer {
+  display: flex ;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  font-family: Helvetica, sans-serif;
+}
+h4,
+p,
+td {
+  text-align: center;
+}
+.nav {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+.stats {
+  display: flex;
+  justify-content: space-around;
+  }
