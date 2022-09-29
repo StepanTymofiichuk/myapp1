@@ -34,15 +34,15 @@ function BussinesEnglish(props) {
               <button type="button" className="btn btn-info" disabled>Previous</button>
             </div>
             <div className="p-2 flex-fill">
-              <button type="button" className="btn btn-secondary" onClick={check}
+              <button type="button" className="btn btn-secondary" disabled onClick={check}
                 >Check</button>
             </div>
             <div className="p-2 flex-fill">
-              <button type="button" className="btn btn-success"
+              <button type="button" className="btn btn-success" disabled
                 >Translate</button>
             </div>
             <div className="p-2 flex-fill">
-              <button type="button" className="btn btn-info">Next</button>
+              <button type="button" className="btn btn-info" disabled>Next</button>
             </div>
           </div>
         </div>

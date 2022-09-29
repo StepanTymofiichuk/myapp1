@@ -42,7 +42,7 @@ const Home = (props) => {
               </tbody>
             </table>
             <div className="d-grid gap-2 col-6 mx-auto">
-              <Link to="/" className="btn btn-outline-info" role="button">Start</Link>
+              <Link to="/bussines" className="btn btn-outline-info" role="button">Start</Link>
             </div>
           </div>
         </div>

@@ -1,17 +1,12 @@
-import './App.css';
 import {
-  BrowserRouter,
-  Routes, //replaces "Switch" used till v5
-  Route,
   Link
 } from "react-router-dom";
-import ItEnglish from './IEnglish';
 
 function Header() {
 
   return (
     <div className="jumbotron text-center">
-      <h1>Testing App</h1>
+      <h1>English Vocabulary Testing</h1>
         <ul className='nav'>
           <li>
             <Link to="/">Home</Link>

@@ -9,33 +9,48 @@ function ItEnglish(props) {
   const [input, setInput] = useState('');
   const [translation, setTranslation] = useState("");
   const [isCorrect, setIsCorrect] = useState("");
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(false);
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(false);
   useEffect(() => {
     setITVocabulary(props.ITVocabulary);
   }, [])
   const check = (event) => {
     event.preventDefault();
-    if (input == ITVocabulary[nextWord].englishWord) {
-      setIsCorrect("true");
-      setScore(score + 1);
+    if(count >= 2) {
+      if (input == ITVocabulary[nextWord].englishWord) {
+        setIsCorrect("true");
+        setScore(score + 1);
+      } else {
+        setIsCorrect("false");
+        setScore(score - 1);
+      }
     } else {
-      setIsCorrect("false");
-      setScore(score - 1);
+      setNextBtnDisabled(true);
     }
+
     setInput('')
   }
   const next = (event) => {
     event.preventDefault();
-    setNextWord(nextWord  - 1);
-    setCount(count + 1);
-    setTranslation("");
-    setIsCorrect("");
+    if(count < 2) {
+      setNextWord(nextWord  - 1);
+      setCount(count + 1);
+      setTranslation("");
+      setIsCorrect("");
+    } else {
+      setNextBtnDisabled(true);
+    }
   }
   const previous = (event) => {
     event.preventDefault();
-    setNextWord(nextWord  + 1);
-    setCount(count - 1);
-    setTranslation("");
-    setIsCorrect("");
+    if(count > 1) {
+      setNextWord(nextWord  + 1);
+      setCount(count - 1);
+      setTranslation("");
+      setIsCorrect("");
+    } else {
+      setPrevBtnDisabled(true);
+    }
   }
   const translate = (event) => {
     event.preventDefault();
@@ -61,7 +76,7 @@ function ItEnglish(props) {
         <div className="card-footer">
           <div className="d-flex">
             <div className="p-2 flex-fill">
-              <button type="button" className="btn btn-info" onClick={previous}>Pevious</button>
+              <button type="button" className="btn btn-info" onClick={previous} disabled>Pevious</button>
             </div>
             <div className="p-2 flex-fill">
               <button type="button" className="btn btn-secondary" onClick={check}
@@ -72,7 +87,7 @@ function ItEnglish(props) {
                 >Translate</button>
             </div>
             <div className="p-2 flex-fill">
-              <button type="button" className="btn btn-info" onClick={next}>Next</button>
+              <button type="button" className="btn btn-info" onClick={next}  disabled={nextBtnDisabled}>Next</button>
             </div>
           </div>
         </div>
