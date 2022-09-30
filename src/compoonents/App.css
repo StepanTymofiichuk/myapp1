@@ -34,3 +34,7 @@ td {
   display: flex;
   justify-content: space-around;
   }
+.final-score {
+    padding: 5px;
+    text-align: center;
+  }

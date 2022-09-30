@@ -61,9 +61,9 @@ function App() {
                   ITVocabulary={ITVocabulary.length}
                   bussinesVocabulary={bussinesVocabulary.length}
                   legalVocabulary={legalVocabulary.length} />} />
-        <Route path='/it' element={<ItEnglish ITVocabulary={ITVocabulary} />} />
-        <Route path='/bussines' element={<BussinesEnglish bussinesVocabulary={bussinesVocabulary} />} />
-        <Route path='/legal' element={<LegalEnglish legalVocabulary={legalVocabulary} />} />
+        <Route path='/it' element={<ItEnglish vocabulary={ITVocabulary} wordCount={ITVocabulary.length} />} />
+        <Route path='/bussines' element={<BussinesEnglish vocabulary={bussinesVocabulary} wordCount={bussinesVocabulary.length}/>} />
+        <Route path='/legal' element={<LegalEnglish vocabulary={legalVocabulary} wordCount={legalVocabulary.length}/>} />
       </Routes>
     </BrowserRouter>
   );
