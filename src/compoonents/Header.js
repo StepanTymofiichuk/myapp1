@@ -6,19 +6,16 @@ function Header() {
 
   return (
     <div className="jumbotron text-center">
-      <h1>English Vocabulary Testing</h1>
+      <h1>English Testing App</h1>
         <ul className='nav'>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/vocabulary">English Vocabulary Testing</Link>
           </li>
           <li>
-            <Link to="/it">It English</Link>
+            <Link to="/grammar">English Grammar Testing</Link>
           </li>
           <li>
-            <Link to="/bussines">Bussines English</Link>
-          </li>
-          <li>
-            <Link to="/legal">Legal English</Link>
+            <Link to="/about">About</Link>
           </li>
         </ul>
     </div>
