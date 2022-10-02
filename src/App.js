@@ -57,13 +57,12 @@ function App() {
         <Header />
       </div>
       <Routes>
-        <Route path='/' element={<Home 
-                  ITVocabulary={ITVocabulary.length}
+        <Route path='/vocabulary' element={<Home ITVocabulary={ITVocabulary.length}
                   bussinesVocabulary={bussinesVocabulary.length}
                   legalVocabulary={legalVocabulary.length} />} />
-        <Route path='/it' element={<ItEnglish vocabulary={ITVocabulary} wordCount={ITVocabulary.length} />} />
-        <Route path='/bussines' element={<BussinesEnglish vocabulary={bussinesVocabulary} wordCount={bussinesVocabulary.length}/>} />
-        <Route path='/legal' element={<LegalEnglish vocabulary={legalVocabulary} wordCount={legalVocabulary.length}/>} />
+        <Route path='/vocabulary/it' element={<ItEnglish vocabulary={ITVocabulary} wordCount={ITVocabulary.length} />} />
+        <Route path='vocabulary/bussines' element={<BussinesEnglish vocabulary={bussinesVocabulary} wordCount={bussinesVocabulary.length}/>} />
+        <Route path='vocabulary/legal' element={<LegalEnglish vocabulary={legalVocabulary} wordCount={legalVocabulary.length}/>} />
       </Routes>
     </BrowserRouter>
   );
