@@ -13,7 +13,7 @@ const Home = (props) => {
               <tbody>
               <tr>
                 <td>Words in db</td>
-                <td>{ props.ITVocabulary }</td>
+                <td>{ props.ITAmount }</td>
               </tr>
               <tr>
                 <td>Words in test</td>
@@ -33,7 +33,7 @@ const Home = (props) => {
               <tbody>
               <tr>
                 <td>Words in db</td>
-                <td>{props.bussinesVocabulary}</td>
+                <td>{props.businessAmount}</td>
               </tr>
               <tr>
                 <td>Words in test</td>
@@ -53,7 +53,7 @@ const Home = (props) => {
               <tbody>
               <tr>
                 <td>Words in db</td>
-                <td>{props.legalVocabulary}</td>
+                <td>{props.legalAmount}</td>
               </tr>
               <tr>
                 <td>Words in test</td>

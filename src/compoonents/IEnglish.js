@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 function ItEnglish(props) {
-  const [vocabulary, setVocabulary] = useState();
-  const [nextWord, setNextWord] = useState(props.wordCount - 1);
+  const [vocabulary, setVocabulary] = useState([]);
+  const [nextWord, setNextWord] = useState(Math.floor(Math.random() * 300));
   const [count, setCount] = useState(1);
   const [score, setScore] = useState(0);
   const [input, setInput] = useState('');
@@ -14,20 +14,21 @@ function ItEnglish(props) {
   const [checkBtnDisabled, setCheckBtnDisabled] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   useEffect(() => {
-    setVocabulary(props.vocabulary);
+    setVocabulary(props.ITVocabulary.it_english);
   }, [])
+  //console.log(vocabulary[0])
   const check = (event) => {
     event.preventDefault();
     if(input) {
       setCheckBtnDisabled(true);
-      if (input == vocabulary[nextWord].english_word) {
+      if (input === vocabulary[nextWord].english_word) {
         setIsCorrect("true");
         setScore(score + 1);
-        setFinalScore((score + 1) / vocabulary.length * 100)
+        setFinalScore((score + 1) / 30 * 100)
       } else {
         setIsCorrect("false");
         setScore(score - 1);
-        setFinalScore((score - 1) / vocabulary.length * 100)
+        setFinalScore((score - 1) / 30 * 100)
       }
       setInput('');
     } else {
@@ -36,8 +37,8 @@ function ItEnglish(props) {
   }
   const next = (event) => {
     event.preventDefault();
-    if(count < vocabulary.length) {
-      setNextWord(nextWord  - 1);
+    if(count <= 29) {
+      setNextWord(nextWord  + 1);
       setCount(count + 1);
       setTranslation("");
       setIsCorrect("");
@@ -45,6 +46,7 @@ function ItEnglish(props) {
     } else {
       setNextBtnDisabled(true);
     }
+    setInput('');
   }
   const previous = (event) => {
     event.preventDefault();
@@ -63,10 +65,11 @@ function ItEnglish(props) {
     setCheckBtnDisabled(true);
   }
   return (
-    <div className="container">
-      <div className="card">
+    <>
+    <div className="center">
+      <div className="card-test">
         <div className="card-header">
-          <p>{props.vocabulary[nextWord].translation}</p>
+          <p className='en-word'>{props.ITVocabulary.it_english[nextWord].translation}</p>
           <p>{translation}</p>
         </div>
         <div className="card-body">
@@ -103,8 +106,9 @@ function ItEnglish(props) {
         </div>
         <p>{isCorrect}</p>
       </div>
-      <h2 className='final-score'>Your result: {finalScore.toFixed(1)} %</h2>
     </div>
+    <h2 className='final-score'>Your result: {finalScore.toFixed(1)} %</h2>
+    </>
   );
 }
 

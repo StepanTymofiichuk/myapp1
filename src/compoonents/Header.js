@@ -9,13 +9,10 @@ function Header() {
       <h1>English Testing App</h1>
         <ul className='nav'>
           <li>
-            <Link to="/vocabulary">English Vocabulary Testing</Link>
+            <Link to="/">English Vocabulary Testing</Link>
           </li>
           <li>
-            <Link to="/grammar">English Grammar Testing</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
+            <Link to="#">English Grammar Testing</Link>
           </li>
         </ul>
     </div>

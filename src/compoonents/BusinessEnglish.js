@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-function LegalEnglish(props) {
+function BusinessEnglish(props) {
   const [vocabulary, setVocabulary] = useState([]);
-  const [nextWord, setNextWord] = useState(Math.floor(Math.random() * 200));
+  const [nextWord, setNextWord] = useState(Math.floor(Math.random() * 100));
   const [count, setCount] = useState(1);
   const [score, setScore] = useState(0);
   const [input, setInput] = useState('');
@@ -14,7 +14,7 @@ function LegalEnglish(props) {
   const [checkBtnDisabled, setCheckBtnDisabled] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   useEffect(() => {
-    setVocabulary(props.legalVocabulary.legal_english);
+    setVocabulary(props.businessVocabulary.business_english);
   }, [])
   //console.log(vocabulary[0])
   const check = (event) => {
@@ -69,7 +69,7 @@ function LegalEnglish(props) {
     <div className="center">
       <div className="card-test">
         <div className="card-header">
-          <p className='en-word'>{props.legalVocabulary.legal_english[nextWord].translation}</p>
+          <p className='en-word'>{props.businessVocabulary.business_english[nextWord].translation}</p>
           <p>{translation}</p>
         </div>
         <div className="card-body">
@@ -112,4 +112,4 @@ function LegalEnglish(props) {
   );
 }
 
-export default LegalEnglish;
+export default BusinessEnglish;
