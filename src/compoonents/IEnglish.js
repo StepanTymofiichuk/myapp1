@@ -20,6 +20,7 @@ function ItEnglish(props) {
   const check = (event) => {
     event.preventDefault();
     if(input) {
+      input.toLowerCase()
       setCheckBtnDisabled(true);
       if (input === vocabulary[nextWord].english_word) {
         setIsCorrect("true");
