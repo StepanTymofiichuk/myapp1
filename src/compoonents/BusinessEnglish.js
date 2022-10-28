@@ -13,6 +13,7 @@ function BusinessEnglish(props) {
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(false);
   const [checkBtnDisabled, setCheckBtnDisabled] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
+  const [btnVisible, setBtnVisible] = useState(false);
   useEffect(() => {
     setVocabulary(props.businessVocabulary.business_english);
   }, [])
@@ -37,7 +38,7 @@ function BusinessEnglish(props) {
   }
   const next = (event) => {
     event.preventDefault();
-    if(count <= 29) {
+    if(count <= 19) {
       setNextWord(nextWord  + 1);
       setCount(count + 1);
       setTranslation("");
@@ -45,6 +46,7 @@ function BusinessEnglish(props) {
       setCheckBtnDisabled(false);
     } else {
       setNextBtnDisabled(true);
+      setBtnVisible(true)
     }
     setInput('');
   }
@@ -64,10 +66,18 @@ function BusinessEnglish(props) {
     setTranslation(vocabulary[nextWord].english_word);
     setCheckBtnDisabled(true);
   }
+  const StartAgain = () => {
+    return (
+      <div className='btn-center'>
+        <button type="button" className='btn btn-warning' onClick={() => window.location.reload(false)}>Start again</button>
+      </div>
+    )
+  }
   return (
     <>
     <div className="center">
       <div className="card-test">
+      <p>Business English Vocabulary</p>
         <div className="card-header">
           <p className='en-word'>{props.businessVocabulary.business_english[nextWord].translation}</p>
           <p>{translation}</p>
@@ -108,6 +118,7 @@ function BusinessEnglish(props) {
       </div>
     </div>
     <h2 className='final-score'>Your result: {finalScore.toFixed(1)} %</h2>
+    {btnVisible ? <StartAgain /> : null}
     </>
   );
 }

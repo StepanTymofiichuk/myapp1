@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import {Link} from 'react-router-dom';
 
 function ItEnglish(props) {
   const [vocabulary, setVocabulary] = useState([]);
@@ -13,6 +14,7 @@ function ItEnglish(props) {
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(false);
   const [checkBtnDisabled, setCheckBtnDisabled] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
+  const [btnVisible, setBtnVisible] = useState(false);
   useEffect(() => {
     setVocabulary(props.ITVocabulary.it_english);
   }, [])
@@ -38,7 +40,7 @@ function ItEnglish(props) {
   }
   const next = (event) => {
     event.preventDefault();
-    if(count <= 29) {
+    if(count <= 19) {
       setNextWord(nextWord  + 1);
       setCount(count + 1);
       setTranslation("");
@@ -46,6 +48,7 @@ function ItEnglish(props) {
       setCheckBtnDisabled(false);
     } else {
       setNextBtnDisabled(true);
+      setBtnVisible(true)
     }
     setInput('');
   }
@@ -65,10 +68,18 @@ function ItEnglish(props) {
     setTranslation(vocabulary[nextWord].english_word);
     setCheckBtnDisabled(true);
   }
+  const StartAgain = () => {
+    return (
+      <div className='btn-center'>
+        <button type="button" className='btn btn-warning' onClick={() => window.location.reload(false)}>Start again</button>
+      </div>
+    )
+  }
   return (
     <>
     <div className="center">
       <div className="card-test">
+      <p>IT English vocabulary</p>
         <div className="card-header">
           <p className='en-word'>{props.ITVocabulary.it_english[nextWord].translation}</p>
           <p>{translation}</p>
@@ -109,6 +120,7 @@ function ItEnglish(props) {
       </div>
     </div>
     <h2 className='final-score'>Your result: {finalScore.toFixed(1)} %</h2>
+   {btnVisible ? <StartAgain /> : null}
     </>
   );
 }

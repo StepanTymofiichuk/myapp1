@@ -13,6 +13,7 @@ function LegalEnglish(props) {
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(false);
   const [checkBtnDisabled, setCheckBtnDisabled] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
+  const [btnVisible, setBtnVisible] = useState(false);
   useEffect(() => {
     setVocabulary(props.legalVocabulary.legal_english);
   }, [])
@@ -37,7 +38,7 @@ function LegalEnglish(props) {
   }
   const next = (event) => {
     event.preventDefault();
-    if(count <= 29) {
+    if(count <= 19) {
       setNextWord(nextWord  + 1);
       setCount(count + 1);
       setTranslation("");
@@ -45,6 +46,7 @@ function LegalEnglish(props) {
       setCheckBtnDisabled(false);
     } else {
       setNextBtnDisabled(true);
+      
     }
     setInput('');
   }
@@ -57,6 +59,7 @@ function LegalEnglish(props) {
       setIsCorrect("");
     } else {
       setPrevBtnDisabled(true);
+      setBtnVisible(true)
     }
   }
   const translate = (event) => {
@@ -64,10 +67,18 @@ function LegalEnglish(props) {
     setTranslation(vocabulary[nextWord].english_word);
     setCheckBtnDisabled(true);
   }
+  const StartAgain = () => {
+    return (
+      <div className='btn-center'>
+        <button type="button" className='btn btn-warning' onClick={() => window.location.reload(false)}>Start again</button>
+      </div>
+    )
+  }
   return (
     <>
     <div className="center">
       <div className="card-test">
+      <p>Legal English Vocabulary</p>
         <div className="card-header">
           <p className='en-word'>{props.legalVocabulary.legal_english[nextWord].translation}</p>
           <p>{translation}</p>
@@ -108,6 +119,7 @@ function LegalEnglish(props) {
       </div>
     </div>
     <h2 className='final-score'>Your result: {finalScore.toFixed(1)} %</h2>
+    {btnVisible ? <StartAgain /> : null}
     </>
   );
 }

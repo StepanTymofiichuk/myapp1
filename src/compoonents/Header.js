@@ -12,7 +12,7 @@ function Header() {
             <Link to="/">English Vocabulary Testing</Link>
           </li>
           <li>
-            <Link to="#">English Grammar Testing</Link>
+            <Link to="grammar">English Grammar Testing</Link>
           </li>
         </ul>
     </div>
