@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import {Link} from 'react-router-dom';
 
-function BusinessEnglish(props) {
+function ItEnglish(props) {
   const [vocabulary, setVocabulary] = useState([]);
-  const [nextWord, setNextWord] = useState(Math.floor(Math.random() * 100));
+  const [nextWord, setNextWord] = useState(Math.floor(Math.random() * 300));
   const [count, setCount] = useState(1);
   const [score, setScore] = useState(0);
   const [input, setInput] = useState('');
@@ -14,12 +15,13 @@ function BusinessEnglish(props) {
   const [finalScore, setFinalScore] = useState(0);
   const [btnVisible, setBtnVisible] = useState(false);
   useEffect(() => {
-    setVocabulary(props.businessVocabulary.business_english);
+    setVocabulary(props.ITVocabulary.it_english);
   }, [])
   //console.log(vocabulary[0])
   const check = (event) => {
     event.preventDefault();
     if(input) {
+      input.toLowerCase()
       setCheckBtnDisabled(true);
       if (input === vocabulary[nextWord].english_word) {
         setScore(score + 1);
@@ -28,7 +30,6 @@ function BusinessEnglish(props) {
         setScore(score - 1);
         setFinalScore((score - 1) / 30 * 100)
       }
-      setInput('');
     } else {
       alert("Please enter translation")
     }
@@ -72,9 +73,9 @@ function BusinessEnglish(props) {
     <>
     <div className="center">
       <div className="card-test">
-      <p>Business English Vocabulary - Test Mode</p>
+      <p>IT English vocabulary - Test Mode</p>
         <div className="card-header">
-          <p className='en-word'>{props.businessVocabulary.business_english[nextWord].translation}</p>
+          <p className='en-word'>{props.ITVocabulary.it_english[nextWord].translation}</p>
           <p>{translation}</p>
         </div>
         <div className="card-body">
@@ -83,7 +84,7 @@ function BusinessEnglish(props) {
             className="form-control"
             placeholder="Translation"
             value={input}
-            style={{color: input === props.businessVocabulary.business_english[nextWord].english_word ? "green": ""}}
+            style={{color: input === props.ITVocabulary.it_english[nextWord].english_word ? "green": ""}}
             onChange={(e) => {
               setInput(e.target.value)
             }} />
@@ -113,9 +114,9 @@ function BusinessEnglish(props) {
       </div>
     </div>
     <h2 className='final-score'>Your result: {finalScore.toFixed(1)} %</h2>
-    {btnVisible ? <StartAgain /> : null}
+   {btnVisible ? <StartAgain /> : null}
     </>
   );
 }
 
-export default BusinessEnglish;
+export default ItEnglish;

@@ -8,7 +8,6 @@ function LegalEnglish(props) {
   const [score, setScore] = useState(0);
   const [input, setInput] = useState('');
   const [translation, setTranslation] = useState("");
-  const [isCorrect, setIsCorrect] = useState("");
   const [nextBtnDisabled, setNextBtnDisabled] = useState(false);
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(false);
   const [checkBtnDisabled, setCheckBtnDisabled] = useState(false);
@@ -23,11 +22,9 @@ function LegalEnglish(props) {
     if(input) {
       setCheckBtnDisabled(true);
       if (input === vocabulary[nextWord].english_word) {
-        setIsCorrect("true");
         setScore(score + 1);
         setFinalScore((score + 1) / 30 * 100)
       } else {
-        setIsCorrect("false");
         setScore(score - 1);
         setFinalScore((score - 1) / 30 * 100)
       }
@@ -42,7 +39,6 @@ function LegalEnglish(props) {
       setNextWord(nextWord  + 1);
       setCount(count + 1);
       setTranslation("");
-      setIsCorrect("");
       setCheckBtnDisabled(false);
     } else {
       setNextBtnDisabled(true);
@@ -56,7 +52,6 @@ function LegalEnglish(props) {
       setNextWord(nextWord  + 1);
       setCount(count - 1);
       setTranslation("");
-      setIsCorrect("");
     } else {
       setPrevBtnDisabled(true);
       setBtnVisible(true)
@@ -78,7 +73,7 @@ function LegalEnglish(props) {
     <>
     <div className="center">
       <div className="card-test">
-      <p>Legal English Vocabulary</p>
+      <p>Legal English Vocabulary - Test Mode</p>
         <div className="card-header">
           <p className='en-word'>{props.legalVocabulary.legal_english[nextWord].translation}</p>
           <p>{translation}</p>
@@ -89,6 +84,7 @@ function LegalEnglish(props) {
             className="form-control"
             placeholder="Translation"
             value={input}
+            style={{color: input === props.legalVocabulary.legal_english[nextWord].english_word ? "green": ""}}
             onChange={(e) => {
               setInput(e.target.value)
             }} />
@@ -115,7 +111,6 @@ function LegalEnglish(props) {
           <p>Word: {count}</p>
           <p>Score: {score}</p>
         </div>
-        <p>{isCorrect}</p>
       </div>
     </div>
     <h2 className='final-score'>Your result: {finalScore.toFixed(1)} %</h2>
