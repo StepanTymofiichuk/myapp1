@@ -41,7 +41,13 @@ function LegalEnglishStudyMode(props) {
             </div>
           </div>
         </div>
+        <div>
+          <p>Word: {count} / {props.legalVocabulary.legal_english.length}</p>
+        </div>
       </div>
+    </div>
+    <div className="center">
+      <small><Link to="/legal">Test Mode</Link></small>
     </div>
     </>
   );

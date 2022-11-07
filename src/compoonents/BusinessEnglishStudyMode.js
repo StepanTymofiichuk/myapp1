@@ -24,7 +24,7 @@ function BusinessEnglishStudyMode(props) {
     <>
     <div className="center">
       <div className="card-test">
-      <p>IT English vocabulary - Study Mode</p>
+      <p>Business English vocabulary - Study Mode</p>
         <div className="card-header">
           <p className='en-word'>{props.businessVocabulary.business_english[nextWord].english_word}</p>
         </div>
@@ -41,7 +41,13 @@ function BusinessEnglishStudyMode(props) {
             </div>
           </div>
         </div>
+        <div>
+          <p>Word: {count} / {props.businessVocabulary.business_english.length}</p>
+        </div>
       </div>
+    </div>
+    <div className="center">
+      <small><Link to="/bussines">Test Mode</Link></small>
     </div>
     </>
   );
