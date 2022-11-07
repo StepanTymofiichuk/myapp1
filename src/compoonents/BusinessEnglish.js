@@ -23,14 +23,17 @@ function BusinessEnglish(props) {
       setCheckBtnDisabled(true);
       if (input === vocabulary[nextWord].english_word) {
         setScore(score + 1);
-        setFinalScore((score + 1) / 30 * 100)
+        setFinalScore((score + 1) / 20 * 100)
       } else {
         setScore(score - 1);
-        setFinalScore((score - 1) / 30 * 100)
+        setFinalScore((score - 1) / 20 * 100)
       }
       setInput('');
     } else {
       alert("Please enter translation")
+    }
+    if (count >= 19) {
+      setBtnVisible(true)
     }
   }
   const next = (event) => {
@@ -109,6 +112,9 @@ function BusinessEnglish(props) {
         <div className='stats'>
           <p>Word: {count}</p>
           <p>Score: {score}</p>
+        </div>
+        <div className="progress" style={{ height: 2, marginBottom: 10 }}>
+            <div className="progress-bar" role="progressbar" style={{ width: count/20*100 + "%" }} aria-valuenow={count/20*100} aria-valuemin="0" aria-valuemax="20"></div>
         </div>
       </div>
     </div>

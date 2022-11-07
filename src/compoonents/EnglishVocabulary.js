@@ -5,71 +5,77 @@ import {
 
 const Home = (props) => {
   return (
-      <div className='container'>
-        <div className="card border-primary mb-3">
-          <div className="card-body">
-            <h4 className="card-title">IT English</h4>
-            <table className="table table-borderless">
-              <tbody>
-              <tr>
-                <td>Words in db</td>
-                <td>{ props.ITAmount }</td>
-              </tr>
-              <tr>
-                <td>Words in test</td>
-                <td>20</td>
-              </tr>
-              </tbody>
-            </table>
-            <div className="d-grid gap-2 row-6 mx-auto">
-              <Link to="/it" className="btn btn-outline-primary" role="button">Testing</Link>
-              <Link to="/study-it" className="btn btn-outline-primary" role="button">Studying</Link>
+    <div className='container'>
+      <div className="card border-primary mb-3">
+        <div className="card-body">
+          <h4 className="card-title">IT English</h4>
+          <div className="row">
+            <div className="col">
+              <p>Words in db</p>
+              <p>Words in test</p>
+            </div>
+            <div className='col'>
+              <p>{props.ITAmount}</p>
+              <p>20</p>
             </div>
           </div>
-        </div>
-        <div className="card border-info mb-3">
-          <div className="card-body">
-            <h4 className="card-title">Business English</h4>
-            <table className="table table-borderless">
-              <tbody>
-              <tr>
-                <td>Words in db</td>
-                <td>{props.businessAmount}</td>
-              </tr>
-              <tr>
-                <td>Words in test</td>
-                <td>20</td>
-              </tr>
-              </tbody>
-            </table>
-            <div className="d-grid gap-2 row-6 mx-auto">
-              <Link to="/bussines" className="btn btn-outline-info" role="button">Testing</Link>
-              <Link to="/study-bussines" className="btn btn-outline-info" role="button">Studying</Link>
+          <div className="row">
+            <div className="col">
+              <Link to="/it">Testing</Link>
             </div>
-          </div>
-        </div>
-        <div className="card border-success mb-3">
-          <div className="card-body">
-            <h4 className="card-title">Legal English</h4>
-            <table className="table table-borderless">
-              <tbody>
-              <tr>
-                <td>Words in db</td>
-                <td>{props.legalAmount}</td>
-              </tr>
-              <tr>
-                <td>Words in test</td>
-                <td>20</td>
-              </tr>
-              </tbody>
-            </table>
-            <div className="d-grid gap-2 row-6 mx-auto">
-              <Link to="/legal" className="btn btn-outline-success" role="button">Testing</Link>
-              <Link to="/study-legal" className="btn btn-outline-success" role="button">Studying</Link>
+            <div className="col">
+              <Link to="/study-it">Studying</Link>
             </div>
           </div>
         </div>
       </div>
+      <div className="card border-info mb-3">
+        <div className="card-body">
+          <h4 className="card-title">Business English</h4>
+          <div className="row">
+            <div className="col">
+              <p>Words in db</p>
+              <p>Words in test</p>
+            </div>
+            <div className='col'>
+              <p>{props.businessAmount}</p>
+              <p>20</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <Link to="/bussines">Testing</Link>
+            </div>
+            <div className="col">
+              <Link to="/study-bussines">Studying</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="card border-success mb-3">
+        <div className="card-body">
+          <h4 className="card-title">Legal English</h4>
+          <div className="row">
+            <div className="col">
+              <p>Words in db</p>
+              <p>Words in test</p>
+            </div>
+            <div className='col'>
+              <p>{props.legalAmount}</p>
+              <p>20</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <Link to="/legal">Testing</Link>
+            </div>
+            <div className="col">
+              <Link to="/study-legal">Studying</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
